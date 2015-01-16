@@ -1,0 +1,11 @@
+
+# File extensions
+######################
+
+*.lock
+
+# Ignore directories
+######################
+
+_site
+
