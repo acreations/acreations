@@ -3,6 +3,7 @@
 ---
 
 @import 'cards/all.scss';
+@import 'summary/all.scss';
 
 #home {
   letter-spacing: 2px;
@@ -90,10 +91,6 @@ ul li a {
 .footer {
   background-color: white;
   padding: 20px;
-}
-
-.summary {
-  padding: 5em 0;
 }
 
 .vertical-center {
