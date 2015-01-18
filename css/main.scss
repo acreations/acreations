@@ -2,6 +2,8 @@
 # Added to ensure that Jekyll compiles it accordingly
 ---
 
+@import 'cards/all.scss';
+
 #home {
   letter-spacing: 2px;
 
@@ -90,7 +92,7 @@ ul li a {
   padding: 20px;
 }
 
-.card {
+.summary {
   padding: 5em 0;
 }
 
