@@ -38,7 +38,7 @@
 
 #about {
   background-color: #2ABB9B;
-  color: #F2F1EF;
+  color: #ECF0F1;
 }
 
 #about .about-image {
@@ -52,11 +52,12 @@
 
 #projects {
   background-color: #ABB7B7;
-  color: #F2F1EF;
+  color: #ECF0F1;
 }
 
 #contact {
-  background-color: #757D75;
+  color: #ECF0F1;
+  background-color: #22A7F0;
 }
 
 #social {
