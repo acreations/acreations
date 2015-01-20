@@ -1,5 +1,4 @@
 ---
-date: 2015-01-19
 layout: start
 title: acreations
 published: true
@@ -41,29 +40,23 @@ published: true
   <div id="about" class="summary clearfix">
     <div class="container">
       <div class="row text-center">
-        <h2 class="text-uppercase">Om mig</h2>
-        <p>En liten introduktion om mig själv</p>
+        <h2 class="text-uppercase">Om</h2>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-sm-4 pull-right">
+        <div class="col-xs-12 col-sm-5 pull-right">
           <div class="about-image text-center">
             <img src="{{ site.url }}/assets/images/avatar.png" class="img-circle" />
           </div>
+          {% include twitter.html %}
         </div>
 
-        <div class="col-xs-12 col-sm-8 pull-right">
+        <div class="col-xs-12 col-sm-7 pull-right">
           <h3>Aaron Wong</h3>
           <p>Senior utvecklare från Göteborg</p>
         </div>
       </div>
     </div>
   </div>
-
-  {% comment %}
-  <div id="latest-blog" class="summary clearfix">
-    {% include posts/latest.html %}
-  </div>
-  {% endcomment %}
 
   <div id="contact" class="summary clearfix">
     <div class="container">

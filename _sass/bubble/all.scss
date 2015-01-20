@@ -1,0 +1,28 @@
+.bubble {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  background: #FFFFFF;
+  border-radius: 2px;
+  height: 120px;
+  margin-top: 20px;
+  padding: 2px;
+  position: relative;
+  width: 100%;
+
+  .bubble-content {
+    padding: 5px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 0 20px 20px;
+    border-color: #FFFFFF transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    top: -20px;
+    left: 82.5%;
+  }
+}

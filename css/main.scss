@@ -2,6 +2,7 @@
 # Added to ensure that Jekyll compiles it accordingly
 ---
 
+@import 'bubble/all.scss';
 @import 'cards/all.scss';
 @import 'summary/all.scss';
 
@@ -78,6 +79,11 @@
 #navbar-social i {
   padding-left: 8px;
   padding-right: 8px;
+}
+
+#latest-blog {
+  color: #ECF0F1;
+  background-color: #6C7A89;
 }
 
 body {
