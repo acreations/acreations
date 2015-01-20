@@ -5,86 +5,8 @@
 @import 'bubble/all.scss';
 @import 'cards/all.scss';
 @import 'summary/all.scss';
+@import 'start/all.scss';
 
-#home {
-  letter-spacing: 2px;
-
-  width: 100%;
-  height: 42em;
-
-  background: url('/assets/images/home.jpg') no-repeat center center fixed;
-  background-size: 100% 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#home h1 {
-  font-size: 3em;
-  font-weight: bold;
-}
-
-#home h3 {
-  text-transform: uppercase;
-}
-
-#home-start {
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9)
-}
-
-#home-navbar {
-  border-radius: 0;
-  margin-bottom: 0;
-
-  background-color: rgba(0, 0, 0, 0.75);
-
-  text-transform: uppercase;
-}
-
-#about {
-  background-color: #2ABB9B;
-  color: #ECF0F1;
-}
-
-#about .about-image {
-   -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
-    animation: mymove 5s infinite;
-}
-
-#about .about-image img {
-  border: 10px solid rgba(82, 82, 82, 0.25);
-}
-
-#projects {
-  background-color: #ABB7B7;
-  color: #ECF0F1;
-}
-
-#contact {
-  color: #ECF0F1;
-  background-color: #22A7F0;
-}
-
-#social {
-  text-align: center;
-  padding: 20px;
-}
-
-#navbar-social {
-  margin-top: 12px;
-}
-
-#navbar-social i {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-#latest-blog {
-  color: #ECF0F1;
-  background-color: #6C7A89;
-}
 
 body {
   font-family: 'Roboto', sans-serif;
