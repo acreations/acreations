@@ -1,0 +1,32 @@
+<div id="blog" class="summary clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Senaste inlägg</h3>
+      </div>
+    </div>
+    <div class="row">
+      {% for post in site.posts %}
+      <div class="col-md-4">
+        <div class="card">
+          {% if post.feature_image %}
+          <div class="card-image">
+            <img class="img-responsive" src="{{ post.feature_image }}">
+          </div>
+          {% endif %}
+
+          <div class="card-content">
+            <a href="{{ post.url }}"><h4>{{ post.title }}</h4></a>
+            <p class="post-info"><i class="fa fa-calendar fa-1x"></i> {{ post.date | date_to_string }}</p>
+            <p>{{ post.excerpt }}</p>
+          </div>
+
+          <div class="card-action text-center">
+            <a href="{{ post.url }}">Läs mer</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

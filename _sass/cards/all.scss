@@ -9,8 +9,9 @@
   border-radius: 2px;
   background-clip: padding-box;
 }
+
 .card span.card-title {
-    color: #fff;
+    color: #434A54;
     font-size: 24px;
     font-weight: 300;
     text-transform: uppercase;
@@ -23,7 +24,7 @@
 .card .card-image img {
   border-radius: 2px 2px 0 0;
   background-clip: padding-box;
-  position: relative;
+  //position: relative;
   z-index: -1;
 }
 .card .card-image span.card-title {

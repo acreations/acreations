@@ -4,16 +4,22 @@
 
 @import 'bubble/all.scss';
 @import 'cards/all.scss';
+@import 'posts/all.scss';
 @import 'summary/all.scss';
 @import 'start/all.scss';
 
 
 body {
+  background-color: #E6E9ED;
   font-family: 'Roboto', sans-serif;
 }
 
 ul li a {
   letter-spacing: 3px;
+}
+
+.navbar {
+  border-radius: 0;
 }
 
 .footer {
