@@ -1,12 +1,44 @@
+<script type="text/javascript">
+  var onloadCallbacks  = function() {
+    grecaptcha.render('grecaptcha', {
+      'sitekey' : '',
+      'callback': function(response) {
+        console.log(response);
+      },
+      'theme': 'dark'
+    });
+  };
+</script>
+
 <div id="contact" class="summary clearfix">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h3>Kontakt</h3>
-        <p>
-        Hör av dig till mig via denna e-post: webben (<abbr title="@">snabel-a</abbr>) aaronwong.se
-        </p>
+        <h3>Kontakt mig</h3>
       </div>
+
+      <form name="sendmail" role="form" class="sendmail">
+        <input type="hidden" data-ng-value="token">
+        <div class="col-sm-6">
+          <p class="form-group has-feedback" data-ng-class="{'has-error': (nBlur && !name) }">
+            <input class="form-control" data-ng-model="name" data-ng-blur="nBlur=true" placeholder="Ditt namn" data-ng-required="true"></input>
+          </p>
+          <p class="form-group has-feedback" data-ng-class="{'has-error': (mBlur && !mail) }">
+            <input class="form-control has-feedback" data-ng-model="mail" data-ng-blur="mBlur=true" placeholder="Ditt epost" data-ng-required="true"></input>
+          <p class="form-group has-feedback" data-ng-class="{'has-error': (msgBlur && !message) }">
+            <label class="control-label" for="message">Ditt meddelande</label>
+            <textarea class="form-control" rows="8" data-ng-model="message" data-ng-blur="msgBlur=true" placeholder="Meddelande"></textarea>
+          </p>
+          <div class="recaptcha" data-on-update-token="updateToken(token)" data-sitekey="6LeXfgMTAAAAAK1VkZQOXxkgIZgrkmFeSi0YkWoB" data-theme="dark"></div>
+          <button type="button" class="btn btn-success pull-right" data-ng-click="send()" data-ng-disable="!token">Skicka meddelande</button>
+        </div>
+        <div class="col-sm-6">
+          <div class="alert alert-success alert-dismissable ng-hide" data-ng-show="hasErrors">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <strong>Fält saknas</strong> Fyll i alla fält innan du skickar
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

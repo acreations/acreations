@@ -8,7 +8,6 @@
 @import 'summary/all.scss';
 @import 'start/all.scss';
 
-
 body {
   background-color: #E6E9ED;
   font-family: 'Roboto', sans-serif;
@@ -20,6 +19,14 @@ ul li a {
 
 .navbar {
   border-radius: 0;
+}
+
+.ng-hide {
+  /* this is just another form of hiding an element */
+  display: block!important;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }
 
 .footer {
