@@ -17,28 +17,58 @@
         <h3>Kontakt mig</h3>
       </div>
 
-      <form name="sendmail" role="form" class="sendmail">
-        <input type="hidden" data-ng-value="token">
-        <div class="col-sm-6">
-          <p class="form-group has-feedback" data-ng-class="{'has-error': (nBlur && !name) }">
-            <input class="form-control" data-ng-model="name" data-ng-blur="nBlur=true" placeholder="Ditt namn" data-ng-required="true"></input>
-          </p>
-          <p class="form-group has-feedback" data-ng-class="{'has-error': (mBlur && !mail) }">
-            <input class="form-control has-feedback" data-ng-model="mail" data-ng-blur="mBlur=true" placeholder="Ditt epost" data-ng-required="true"></input>
-          <p class="form-group has-feedback" data-ng-class="{'has-error': (msgBlur && !message) }">
-            <label class="control-label" for="message">Ditt meddelande</label>
-            <textarea class="form-control" rows="8" data-ng-model="message" data-ng-blur="msgBlur=true" placeholder="Meddelande"></textarea>
-          </p>
-          <div class="recaptcha" data-on-update-token="updateToken(token)" data-sitekey="6LeXfgMTAAAAAK1VkZQOXxkgIZgrkmFeSi0YkWoB" data-theme="dark"></div>
-          <button type="button" class="btn btn-success pull-right" data-ng-click="send()" data-ng-disable="!token">Skicka meddelande</button>
-        </div>
-        <div class="col-sm-6">
-          <div class="alert alert-success alert-dismissable ng-hide" data-ng-show="hasErrors">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <strong>Fält saknas</strong> Fyll i alla fält innan du skickar
+      <div class="col-xs-12">
+        <form name="sendmail" role="form" class="row sendmail" method="post">
+          <input type="hidden" data-ng-value="token"></input>
+
+          <div class="col-sm-6" data-ng-show="!success">
+            <p class="form-group has-feedback" data-ng-class="{'has-error': ((token || sendmail.name.$touched) && !name) }">
+              <input type="text" class="form-control" data-ng-model="name" name="name" placeholder="Ditt namn" data-ng-required="true"></input>
+            </p>
+            <p class="form-group has-feedback" data-ng-class="{'has-error': ((token || sendmail.mail.$touched) && !mail) }">
+              <input type="email" class="form-control has-feedback" data-ng-model="mail" name="mail" placeholder="Ditt epost" data-ng-required="true"></input>
+            </p>
+            <p>
+              <div data-ng-show="hasErrors" class="ng-hide">
+                <div class="alert alert-danger alert-dismissable">
+                  <strong>Fält saknas</strong> Fyll i alla fält innan du skickar
+                </div>
+              </div>
+            </p>
+            <p>
+              <div data-ng-show="error" class="ng-hide">
+                <div class="alert alert-danger alert-dismissable">
+                  <strong>Fel</strong> Något gick snett, meddelandet skickades inte ...
+                </div>
+              </div>
+            </p>
           </div>
-        </div>
-      </form>
+
+          <div class="col-sm-6" data-ng-show="!success">
+            <p class="form-group has-feedback" data-ng-class="{'has-error': ((token || sendmail.subject.$touched) && !subject) }">
+              <input type="text" class="form-control has-feedback" data-ng-model="subject" name="subject" placeholder="Vad handlar ditt meddelande om?" data-ng-required="true"></input>
+            </p>
+            <p class="form-group has-feedback" data-ng-class="{'has-error': ((token || sendmail.message.$touched) && !message) }">
+              <textarea class="form-control" rows="8" data-ng-model="message" name="message" placeholder="Skriv ditt meddelande"></textarea>
+            </p>
+          </div>
+
+          <div class="col-xs-12" data-ng-show="!success">
+            <div class="center-block">
+              <div class="recaptcha" data-on-update-token="updateToken(token)" data-sitekey="6LeXfgMTAAAAAK1VkZQOXxkgIZgrkmFeSi0YkWoB" data-theme="dark"></div>
+              <div class="margin-top">
+                <button type="button" class="btn btn-lg btn-success" data-ng-click="send(sendmail)" data-ng-disabled="!token">Skicka meddelande</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 ng-hide" data-ng-show="success">
+            <div class="alert alert-success alert-dismissable">
+              <strong>Meddelande skickat</strong> swoosh ...
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>

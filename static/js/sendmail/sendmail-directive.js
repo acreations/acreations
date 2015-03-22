@@ -10,21 +10,29 @@ define(['jquery'], function ($) {
           scope.token = token;
         };
 
-        scope.send = function() {
-          scope.hasErrors = !scope.sendmail.$valid && scope.token;
+        scope.send = function(form) {
+          scope.hasErrors = !form.$valid && !scope.token;
 
           if (!scope.hasErrors) {
+            $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
             $http.post('http://acreations-sendmail.herokuapp.com/send_mail', {
-                name: 'Aaron Wong',
-                email: 'aaron.wong@jamsprint.com',
-                subject: 'Ping',
-                message: 'Pong',
-                recaptcha_response_field: 'afafas' }).
+                'name': form.name.$modelValue,
+                'email': form.mail.$modelValue,
+                'subject': form.subject.$modelValue,
+                'message': form.message.$modelValue,
+                'recaptcha_response_field': scope.token
+              }).
               success(function(data, status, headers, config) {
-                console.log(data);
+                switch (data.message) {
+                  case 'success':
+                    scope.success = true;
+                    break;
+                  default:
+                    scope.error = true;
+                }
               }).
               error(function(data, status, headers, config) {
-                console.log(data);
+                scope.error = true;
               });
           }
         }

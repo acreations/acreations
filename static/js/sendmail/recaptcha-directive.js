@@ -16,8 +16,6 @@ define([], function () {
           element.attr("data-expired-callback", "expiredCallback");
 
           window.successCallback = function (token) {
-            console.log('here?', token);
-
             scope.$apply(function() {
               scope.callback({
                 token: token
