@@ -14,19 +14,19 @@ define(['jquery'], function ($) {
           scope.hasErrors = !form.$valid && !scope.token;
 
           if (!scope.hasErrors) {
-            //$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
-
-            var data = $.param(
-              JSON.stringify({
+            $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+            $http({
+              method: 'POST',
+              url: '//acreations-sendmail.herokuapp.com/send_mail',
+              data: $.param({
                 name: form.name.$modelValue,
-                _replyto: form.mail.$modelValue,
-                _subject: '[WEBBEN] ' + form.subject.$modelValue,
+                email: form.mail.$modelValue,
+                subject: form.subject.$modelValue,
                 message: form.message.$modelValue
-                //'g-recaptcha-response': scope.token
-              })
-            );
-
-            $http.post('//formspree.io/webben@aaronwong.se', data).
+                //'g-recaptcha-response': scope.token}),
+              }),
+              headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).
               success(function () {
                 scope.success = true;
               }).
